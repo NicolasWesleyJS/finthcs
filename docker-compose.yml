@@ -1,0 +1,24 @@
+version: "3.3"
+services:
+
+  dash:
+    build:
+      context: .
+      args:
+        - DASH_ENV=dev
+      dockerfile: dev.Dockerfile
+    # command:
+        # - gunicorn -b 0.0.0.0:8050 app.app:server
+
+    env_file:
+      - .env
+    ports:
+      - "8050:8050"
+    volumes:
+      - .:/code
+
+volumes:
+  site-packages:
+  bin:
+  postgres-data:
+  redis-data:
